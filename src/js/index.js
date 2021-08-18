@@ -69,11 +69,8 @@ function render(variables = {}) {
   let instagram = "alesanchezr";
   if (variables.instagram) instagram = `${variables.instagram}`;
 
-
-      // reset the website body with the new html output
-      (document.querySelector(
-        "#widget_content"
-      ).innerHTML = `<div class="widget">
+  // reset the website body with the new html output
+  document.querySelector("#widget_content").innerHTML = `<div class="widget">
           ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${name} ${lastname}</h1>
@@ -86,8 +83,7 @@ function render(variables = {}) {
             <li><a href="https://instagram.com/${instagram}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
-    `)
-    );
+    `;
 }
 
 /**
