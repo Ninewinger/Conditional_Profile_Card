@@ -31,7 +31,7 @@ function render(variables = {}) {
   let name = `Lucy`;
   if (variables.name) name = `${variables.name}`;
   let lastname = `Boilett`;
-  if (variables.lastname) lastname = `${variables.name}`;
+  if (variables.lastname) lastname = `${variables.lastname}`;
   let position = `position-right`;
   if (variables.socialMediaPosition == "position-left") {
     position = `position-left`;
@@ -67,8 +67,9 @@ function render(variables = {}) {
   let linkedin = "alesanchezr";
   if (variables.linkedin) linkedin = `${variables.linkedin}`;
   let instagram = "alesanchezr";
-  if (variables.instagram)
-    instagram = `${variables.instagram}`(
+  if (variables.instagram) instagram = `${variables.instagram}`;
+
+
       // reset the website body with the new html output
       (document.querySelector(
         "#widget_content"
@@ -104,7 +105,7 @@ window.onload = function() {
     socialMediaPosition: null,
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: null,
