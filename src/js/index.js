@@ -28,24 +28,65 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-  let name = `<h1>Lucy Boilett</h1>`;
-  if (variables.name) name = `<h1>${variables.name}</h1>;`
-
-  // reset the website body with the new html output
-  document.querySelector("#widget_content").innerHTML = `<div class="widget">
-            ${cover}
+  let name = `Lucy`;
+  if (variables.name) name = `${variables.name}`;
+  let lastname = `Boilett`;
+  if (variables.lastname) lastname = `${variables.name}`;
+  let position = `position-right`;
+  if (variables.socialMediaPosition == "position-left") {
+    position = `position-left`;
+  } else {
+    position = `position-right`;
+  }
+  let role = `Web Developer`;
+  if (variables.role == "Floor Planner") {
+    role = "Floor Planner";
+  } else if (variables.role == "Technical Writter") {
+    role = "Technical Writter";
+  }
+  let city = `Miami`;
+  if (variables.city == "Munich") {
+    city = "Munich";
+  } else if (variables.city == "Caracas") {
+    city = "Caracas";
+  } else if (variables.city == "Toronto") {
+    city = "Toronto";
+  }
+  let country = `USA`;
+  if (variables.country == "Germany") {
+    country = "Germany";
+  } else if (variables.country == "Canada") {
+    country = "Canada";
+  } else if (variables.country == "Venezuela") {
+    country = "Venezuela";
+  }
+  let twitter = "alesanchezr";
+  if (variables.twitter) twitter = `${variables.twitter}`;
+  let github = "alesanchezr";
+  if (variables.github) github = `${variables.github}`;
+  let linkedin = "alesanchezr";
+  if (variables.linkedin) linkedin = `${variables.linkedin}`;
+  let instagram = "alesanchezr";
+  if (variables.instagram)
+    instagram = `${variables.instagram}`(
+      // reset the website body with the new html output
+      (document.querySelector(
+        "#widget_content"
+      ).innerHTML = `<div class="widget">
+          ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-            ${name}
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${name} ${lastname}</h1>
+          <h2>${role}</h2>
+          <h3>${city}, ${country}</h3>
+          <ul class="${position}">
+            <li><a href="https://twitter.com/${twitter}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${github}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/in/${linkedin}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${instagram}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
-    `;
+    `)
+    );
 }
 
 /**
@@ -60,7 +101,7 @@ window.onload = function() {
     // this is the url for the profile avatar
     avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
     // social media bar position (left or right)
-    socialMediaPosition: "position-left",
+    socialMediaPosition: null,
     // social media usernames
     twitter: null,
     github: "alesanchezr",
